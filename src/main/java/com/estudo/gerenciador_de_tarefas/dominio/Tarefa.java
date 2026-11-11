@@ -16,14 +16,20 @@ public class Tarefa {
 
     public Tarefa(String titulo, Optional<String> descricao){
         Assert.notNull(titulo, "Titulo não pode ser nulo");
+
         this.id = new TarefaId();
         this.titulo = titulo;
         this.descricao = descricao;
         this.status = statusTarefa.PENDENTE ;
     }
 
-    public TarefaId getId() {
-        return id;
+    public void atualizacao(Optional<String> titulo, Optional<String> descricao, Optional<String> status){
+        titulo.ifPresent(this::setTitulo);
+        descricao.ifPresent(d -> this.setDescricao(Optional.of(d)));
+        status.ifPresent(this::setStatus);
+    }
+
+    private void setStatus( String s) {
     }
 
 }
