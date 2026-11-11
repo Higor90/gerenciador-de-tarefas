@@ -3,9 +3,11 @@ package com.estudo.gerenciador_de_tarefas.infraestrutura.repositorio;
 import com.estudo.gerenciador_de_tarefas.dominio.RepositorioDaTarefa;
 import com.estudo.gerenciador_de_tarefas.dominio.Tarefa;
 import com.estudo.gerenciador_de_tarefas.dominio.TarefaId;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class EmMemoriaRepositorioDaTarefa implements RepositorioDaTarefa {
 
     private final Map<TarefaId, Tarefa> armazenamento = new HashMap<>();
